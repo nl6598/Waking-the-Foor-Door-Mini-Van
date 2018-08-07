@@ -1,0 +1,195 @@
+bookmarks = {
+	bookmark = {
+		name = "GATHERING_STORM_NAME"
+		desc = "GATHERING_STORM_DESC"
+		date = 1936.1.1.12
+		picture = "GFX_select_date_1936"
+		default_country = "GER"
+		default = yes
+		
+		"SOM"={
+			history = "SOM_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+				SOM_Socialism_in_Africa
+				SOM_newrepublic
+				SOM_pirates
+			}
+			focuses = {
+			}
+		}
+		"INC"={
+			history = "INC_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				INC_Glory_to_Andean
+				INC_inflation
+
+			}
+			focuses = {
+				INC_Inti
+				INC_Sacrifice
+				INC_Sacrifice4
+			}
+		}
+		"NTD"={
+			history = "NTD_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				NTD_Notre_Dame
+				NTD_No_DLC
+				NTD_Pacifist
+			}
+			focuses = {
+				NTD_deluxeall
+				NTD_Kebab
+				NTD_Foordoor
+				
+			}
+		}
+		"SER"={
+			history = "SER_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"WSC"={
+			history = "WSC_GATHERING_STORM_DESC"
+			ideology = fascism
+			ideas = {
+				WSC_warstarian_legacy
+				WSC_the_great_trek
+				WSC_stronk_alaska
+			}
+			focuses = {
+				WSC_strike_the_source
+				WSC_Alaskan_defensive_lines
+				WSC_denounce_america
+			}
+		}
+		"EOA"={
+			history = "EOA_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				EOA_Will_of_Allah
+				EOA_Calvary
+				EOA_Outdated_Country
+			}	
+			focuses = {
+				EOA_The_Revenge
+				EOA_purge_the_clans
+				EOA_social_darwinism
+			}			
+		}
+		"NCH"={
+			history = "NCH_GATHERING_STORM_DESC"
+			ideology = fascism
+			ideas = {
+				NCH_the_kuomintang
+				NCH_Japanese
+				NCH_Nine
+			}
+			focuses = {
+			}	
+		}
+
+	"---"={
+			history = "OTHER_GATHERING_STORM_DESC"
+		}
+
+	"MXC"={
+			minor = yes
+			history = "MXC_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				The_Great_Split
+				Martial_Law
+			}
+			focuses = {
+				
+			}
+		}
+
+	"MPU"={
+			minor = yes
+			history = "MXC_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				The_Great_Split
+				Martial_Law
+			}
+			focuses = {
+			}
+		}
+		"TOT"={
+			minor = yes
+			history = "MXC_GATHERING_STORM_DESC"
+			ideology = fascism
+			ideas = {
+				The_Great_Split
+				Martial_Law
+			}
+			focuses = {
+
+			}
+		}
+		
+	"OAX"={
+			minor = yes
+			history = "MXC_GATHERING_STORM_DESC"
+			ideology = fascism
+			ideas = {
+				The_Great_Split
+				Martial_Law
+			}
+			focuses = {
+
+				}
+			}
+		
+	"YUC"={
+			minor = yes
+			history = "MXC_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				The_Great_Split
+				Martial_Law
+			}
+			focuses = {
+			}
+		}
+		
+		"JAL"={
+			minor = yes
+			history = "MPU_GATHERING_STORM_DESC"
+			ideology = neutrality
+			ideas = {
+				The_Great_Split
+				American_Influence
+				Martial_Law
+			}
+			focuses = {
+				
+			}
+		}
+		
+		MIX"={
+			minor = yes
+			history = "MIX_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+				The_Great_Split
+				Martial_Law
+			}
+			focuses = {
+			}
+		}
+
+		effect = {
+			randomize_weather = 22345 # <- Obligatory in every bookmark !
+			#123 = { rain_light = yes }
+		}
+	}
+}

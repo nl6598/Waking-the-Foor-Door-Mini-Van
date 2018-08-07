@@ -1,0 +1,32 @@
+focus_tree = {
+	id = italian_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ITA
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1100 }
+
+	focus = {
+		id = ITA_DM
+		icon = GFX_goal_generic_position_armies
+		x = 0
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			news_event = { id = news.423 }
+	}
+}

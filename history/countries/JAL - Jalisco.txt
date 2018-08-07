@@ -1,0 +1,88 @@
+capital = 478
+
+OOB = "JAL_1936"
+
+set_research_slots = 3
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_recon = 1
+	gw_artillery = 1
+}
+
+add_ideas = {
+	closed_economy
+	The_Great_Split
+}
+set_convoys = 5
+set_politics = {
+	
+	parties = {
+		democratic = { 
+			popularity = 45
+		}
+
+		fascism = {
+			popularity = 15
+		}
+		
+		communism = {
+			popularity = 40
+		}
+		
+		neutrality = { 
+			popularity = 1
+		}
+	}
+	
+	ruling_party = democratic
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+	
+create_country_leader = {
+	name = "Carlos de Satonsa"
+	desc = "POLITICS_KING_ZOG_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_3.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Franciscco de Tarde"
+	desc = "POLITICS_SALVADOR_ABASCAL_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_1.dds"
+	expire = "1965.1.1"
+	ideology = falangism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Gabriel Hernandez"
+	desc = "POLITICS_DIONISIO_ENCINA_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_5.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Tlatoani Milintica"
+	desc = "POLITICS_DIONISIO_ENCINA_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_2.dds"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		#
+	}
+}

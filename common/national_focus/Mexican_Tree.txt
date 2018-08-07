@@ -1,0 +1,541 @@
+focus_tree = {
+	id = Mexican_Tree_Focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			OR = {
+				tag = TOT
+				tag = OAX
+				tag = JAL
+				tag = MIX
+				tag = YUC
+			}
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1350 }
+	
+	focus = {
+		id = The_Future_Of_Mexico
+		icon = GFX_goal_generic_dangerous_deal
+		x = 10
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = Martial_Law_Focus
+		icon = GFX_goal_generic_allies_build_infantry
+		x = -2
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+	
+	focus = {
+		id = Socialist_Beliefs
+		icon = GFX_goal_support_communism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = The_Future_Of_Mexico }
+		mutually_exclusive = { focus = Falangist_Beliefs }
+		mutually_exclusive = { focus = Capitalist_Beliefs }
+		mutually_exclusive = { focus = Nahuatl_Beliefs }
+		x = -4
+		y = 1
+		relative_position_id = The_Future_Of_Mexico
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				any_neighbor_country = {
+					is_major = yes
+					has_government = communism
+				}
+			}			
+			modifier = {
+				factor = 0
+				AND = {
+					is_historical_focus_on = yes
+					NOT = { has_government = communism }
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = internationalism
+		}
+	}	
+	
+	focus = {
+		id = Falangist_Beliefs
+		icon = GFX_goal_support_fascism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = The_Future_Of_Mexico }
+		mutually_exclusive = { focus = Socialist_Beliefs }
+		mutually_exclusive = { focus = Nahuatl_Beliefs }
+		mutually_exclusive = { focus = Capitalist_Beliefs }
+		x = -2
+		y = 1
+		relative_position_id = The_Future_Of_Mexico
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				any_neighbor_country = {
+					is_major = yes
+					has_government = fascism
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					is_historical_focus_on = yes
+					NOT = { has_government = fascism }
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = nationalism
+		}
+	}
+	
+	focus = {
+		id = Capitalist_Beliefs
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = The_Future_Of_Mexico }
+		mutually_exclusive = { focus = Falangist_Beliefs }
+		mutually_exclusive = { focus = Socialist_Beliefs }
+		mutually_exclusive = { focus = Nahuatl_Beliefs }
+		x = 0
+		y = 1
+		relative_position_id = The_Future_Of_Mexico
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 95
+			modifier = {
+				factor = 0.1
+				any_neighbor_country = {
+					is_major = yes
+					OR = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				NOT = {
+					any_neighbor_country = {
+						is_major = yes
+						has_government = democratic
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = Capitalist_Beliefs
+		}
+	}
+	
+	focus = {
+		id = Nahuatl_Beliefs
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = The_Future_Of_Mexico }
+		mutually_exclusive = { focus = Falangist_Beliefs }
+		mutually_exclusive = { focus = Socialist_Beliefs }
+		mutually_exclusive = { focus = Capitalist_Beliefs }
+		x = 2
+		y = 1
+		relative_position_id = The_Future_Of_Mexico
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 95
+			modifier = {
+				factor = 0.1
+				any_neighbor_country = {
+					is_major = yes
+					OR = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				NOT = {
+					any_neighbor_country = {
+						is_major = yes
+						has_government = democratic
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = Nahuatl_Beliefs
+		}
+	}
+	
+	focus = {
+		id = infrastructure_effort_MEX
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 2
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+focus = {
+		id = Mexican_Taxation
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = infrastructure_effort_MEX }
+		x = 2
+		y = 1
+		relative_position_id = infrastructure_effort_MEX
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+
+		completion_reward = {
+			add_ideas = Mexican_Taxation
+		}
+	}
+focus = {
+		id = Mexican_industrial_effort
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = infrastructure_effort_MEX }
+		x = -1
+		y = 1
+		cost = 10
+		relative_position_id = infrastructure_effort_MEX
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+focus = {
+		id = Mexican_construction_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = infrastructure_effort_MEX }
+		x = 1
+		y = 2
+		relative_position_id = infrastructure_effort_MEX
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+focus = {
+		id = Mexican_production_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = Mexican_construction_effort }
+		x = -1
+		y = 1
+		relative_position_id = Mexican_construction_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+focus = {
+		id = Mexican_extra_tech_slot
+		icon = GFX_focus_research
+		prerequisite = { focus = Mexican_construction_effort }
+		x = 0
+		y = 2
+		relative_position_id = Mexican_construction_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+focus = {
+		id = MartialLaw_Gone
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = Martial_Law_Focus }
+		mutually_exclusive = { focus = Militarizedstate}
+		x = -1
+		y = 1
+		relative_position_id = Martial_Law_Focus
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			remove_ideas = Martial_Law
+			add_ideas = MartialLaw_Gone_Focus 
+		}
+	}
+focus = {
+		id = Militarizedstate
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = Martial_Law_Focus }
+		mutually_exclusive = { focus = MartialLaw_Gone}
+		x = 1
+		y = 1
+		relative_position_id = Martial_Law_Focus
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			remove_ideas = Martial_Law
+			add_ideas = Militarizedstate
+		}
+	}
+
+focus = {
+		id = MEX_equipment_effort
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = MartialLaw_Gone focus = Militarizedstate }
+		x = 0
+		y = 4
+		relative_position_id = Martial_Law_Focus
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+focus = {
+		id = Nahuatl_Focus_tree
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = Nahuatl_Beliefs}
+		prerequisite = { focus = Mexican_extra_tech_slot}
+		prerequisite = { focus = MEX_equipment_effort}
+		x = 0
+		y = 4
+		relative_position_id = Nahuatl_Beliefs
+
+		cost = 10
+
+
+		available = {
+			neutrality > 0.3
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			load_focus_tree = Nahuatl_Focus_Tree
+		}
+	}
+
+
+	
+	

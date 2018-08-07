@@ -1,0 +1,1668 @@
+focus_tree = {
+	id = Notre_Damus_NTD_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NTD
+		}
+	}
+focus = {
+		id = NTD_deluxe1
+		icon = GFX_goal_generic_demand_territory
+		x = 1
+		y = 0
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+focus = {
+		id = NTD_deluxe2
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = NTD_deluxe1 }
+		x = 1
+		y = 1
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+focus = {
+		id = NTD_deluxe3
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = NTD_deluxe2 }
+		x = -1
+		y = 2
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+focus = {
+		id = NTD_deluxe4
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = NTD_deluxe2 }
+		x = 1
+		y = 2
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+focus = {
+		id = NTD_deluxe5
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = NTD_deluxe2 }
+		x = 3
+		y = 2
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+focus = {
+		id = NTD_deluxeall
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = NTD_deluxe3 }
+		prerequisite = { focus = NTD_deluxe4 }
+		prerequisite = { focus = NTD_deluxe5 }
+		x = 1
+		y = 3
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			remove_ideas = NTD_No_DLC
+		}
+	}
+focus = {
+		id = NTD_foreign
+		icon = GFX_goal_generic_political_pressure
+		x = 8
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+focus = {
+		id = NTD_Militarism
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = NTD_foreign }
+		available = {
+			war_support = 0.5
+		}
+		x = 5
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {			
+			add_ideas = militarism_focus
+			army_experience = 20
+		}
+	}
+focus = {
+		id = NTD_Reclaim
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = {focus = NTD_Militarism }
+		will_lead_to_war_with = FRA
+
+		cancel = {
+			NOT = { country_exists = FRA }
+		}
+		available = {
+			is_puppet = no
+			has_army_manpower = { size > 200000 }
+		}
+		relative_position_id = NTD_Militarism
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		bypass = {
+			has_war_with = FRA
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FRA
+			}
+			remove_ideas = NTD_pacifist
+		}
+	}
+focus = {
+		id = NTD_capital
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = NTD_Reclaim }
+		x = 0
+		y = 1
+		relative_position_id = NTD_Reclaim
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			16 = { is_fully_controlled_by = ROOT }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			set_capital = 16
+			add_political_power = 150
+			add_stability = 0.25
+		}
+	}
+focus = {
+		id = NTD_neutral
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = NTD_capital }
+		mutually_exclusive = { focus = NTD_aggressive }
+		x = -3
+		y = 1
+		relative_position_id = NTD_capital
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_idea = neutrality_idea } }
+				add_ideas = neutrality_idea
+				add_ideas = NTD_pacifist
+			}
+		}
+	}
+focus = {
+		id = NTD_aggressive
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = NTD_capital }
+		mutually_exclusive = { focus = NTD_neutral }
+		x = 2
+		y = 1
+		relative_position_id = NTD_capital
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_idea = neutrality_idea
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = neutrality_idea }
+				remove_ideas = neutrality_idea
+			}	
+			set_rule = { can_send_volunteers = yes }
+			add_political_power = 150
+		}
+	}
+focus = {
+		id = NTD_holyland
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = NTD_aggressive }
+		x = 0
+		y = 1
+		relative_position_id = NTD_aggressive
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
+	}
+focus = {
+		id = NTD_Kebab
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = {focus = NTD_holyland}
+		will_lead_to_war_with = EOA
+
+		cancel = {
+			NOT = { country_exists = EOA }
+		}
+		relative_position_id = NTD_holyland
+		x = 1
+		y = 1
+		cost = 15
+		
+		available_if_capitulated = yes
+		
+		bypass = {
+			has_war_with = EOA
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = EOA
+			}
+		}
+	}
+focus = {
+		id = NTD_Justify
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = NTD_holyland }
+		x = -2
+		y = 1
+		relative_position_id = NTD_holyland
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			add_ideas = NTD_Justify_Focus
+		}
+	}
+focus = {
+		id = NTD_Industrialresearch
+		icon = GFX_goal_generic_production
+
+		x = 15
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+focus = {
+		id = NTD_construction1
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = NTD_Industrialresearch}
+		x = 15
+		y = 1
+		relative_position_id = focus = NTD_Industrialresearch 
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			add_stability = -0.01
+			add_war_support = 0.01
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+focus = {
+		id = NTD_construction2
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = NTD_construction1}
+		x = 0
+		y = 1
+		relative_position_id = NTD_construction1
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 2
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+focus = {
+		id = NTD_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = NTD_construction2 }
+		x = 0
+		y = 1
+		relative_position_id = NTD_construction2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+focus = {
+		id = NTD_military1
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = NTD_construction2 }
+		x = -2
+		y = 1
+		relative_position_id = NTD_construction2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+focus = {
+		id = NTD_Dockyard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = NTD_construction2 }
+		x = 17
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	focus = {
+		id = NTD_tech
+		icon = GFX_focus_research
+		prerequisite = { focus = NTD_military1 }
+		prerequisite = { focus = NTD_infrastructure }
+		prerequisite = { focus = NTD_Dockyard }
+		available = {
+			num_of_factories > 100
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 0
+		y = 1
+		relative_position_id = NTD_infrastructure
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+focus = {
+		id = NTD_tech2
+		icon = GFX_focus_research
+		prerequisite = { focus = NTD_tech }
+		available = {
+			num_of_factories > 420
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 0
+		y = 2
+		relative_position_id = NTD_infrastructure
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+focus = {
+		id = NTDarmy
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = NTD_Reclaim }
+		x = 7
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+focus = {
+		id = NTD_aviation_effort
+		icon = GFX_goal_generic_build_airforce
+		x = 11
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+focus = {
+		id = NTD_destroyer_effort
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = NTD_Dockyard }
+		x = 1
+		y = 1
+		relative_position_id = NTD_Dockyard
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = early_destroyer
+				technology = basic_destroyer
+				technology = improved_destroyer
+				technology = advanced_destroyer
+			}
+		}
+	}
+focus = {
+		id = NTD_Equipment
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = NTD_military1}
+		x = -1
+		y = 1
+		relative_position_id = NTD_military1
+		
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+focus = {
+		id = NTD_training
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = NTD_Militarism }
+		x = 2
+		y = 0
+		relative_position_id = NTD_Militarism
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
+	}
+focus = {
+		id = NTD_holywar
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = NTD_training }
+		x = 2
+		y = 1
+		relative_position_id = NTD_Militarism
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = NTD_nationalism_focus
+		}
+	}
+	focus = {
+		id = NTD_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = NTD_aviation_effort }
+		mutually_exclusive = { focus = NTD_bomber_focus }
+		x = -1
+		y = 1
+		relative_position_id = NTD_aviation_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	focus = {
+		id = NTD_bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = NTD_aviation_effort }
+		mutually_exclusive = { focus = NTD_fighter_focus }
+		x = 1
+		y = 1
+		relative_position_id = NTD_aviation_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+focus = {
+		id = NTD_aviation_effort_2
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = NTD_bomber_focus focus = NTD_fighter_focus }
+		x = -1
+		y = 1
+		relative_position_id = NTD_bomber_focus
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_2_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							NOT = { is_controlled_by = ROOT }
+							NOT = {
+								free_building_slots = {
+									building = air_base
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}				
+					ROOT = { set_country_flag = aviation_effort_2_AB }
+				}
+			}
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+focus = {
+		id = NTD_equipment2
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = NTD_Equipment }
+		x = -2
+		y = 1
+		relative_position_id = NTD_Equipment
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+focus = {
+		id = NTD_refinery
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = NTD_construction2 }
+		x = 6
+		y = 0
+		relative_position_id = NTD_construction2
+
+		cost = 10
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			25 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		 add_resource = {
+				type = oil
+				amount = 4
+				state = 25
+			}
+		}
+	}	
+
+	focus = {
+		id = NTD_armor_effort
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = NTD_Equipment }
+		x = 0
+		y = 1
+		relative_position_id = NTD_Equipment
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 2
+				category = armor
+			}
+		}
+	}
+focus = {
+		id = NTD_Foordoor
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = NTD_armor_effort}
+		x = 0
+		y = 1
+		relative_position_id = NTD_armor_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.75
+				technology = motorised_infantry
+			}
+			add_ideas = FRA_motorized_focus
+		}
+	}
+focus = {
+		id = NTD_doctrine
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = NTD_equipment2 }
+		x = 0
+		y = 1
+		relative_position_id = NTD_equipment2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+focus = {
+		id = NTD_SF
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = NTD_Foordoor }
+		prerequisite = { focus = NTD_doctrine }
+		x = -1
+		y = 1
+		relative_position_id = NTD_Foordoor
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+focus = {
+		id = NTD_Submarines
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = NTD_destroyer_effort }
+		x = 0
+		y = 1
+		relative_position_id = NTD_destroyer_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+focus = {
+		id = NTD_faction
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = NTD_aggressive focus = NTD_neutral }
+
+		continue_if_invalid = yes
+		
+		x = -2
+		y = 1
+		relative_position_id = NTD_aggressive
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+					set_rule = { can_create_factions = yes }
+					set_rule = { can_send_volunteers = yes }
+			}			
+	}
+focus = {
+		id = NTD_religion
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = NTD_aggressive focus = NTD_neutral }
+
+		continue_if_invalid = yes
+		
+		x = -4
+		y = 1
+		relative_position_id = NTD_aggressive
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+					add_political_power = 160
+			}			
+	}
+focus = {
+		id = NTD_fighterdiscount
+		prerequisite = { focus = NTD_aviation_effort_2 }
+		icon = GFX_goal_generic_air_production
+		x = -1
+		y = 1
+		relative_position_id = NTD_aviation_effort_2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = british_fighter_discount
+		}
+	}
+focus = {
+		id = NTD_submarine2
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = NTD_Submarines }
+		x = 0
+		y = 1
+		relative_position_id = NTD_Submarines
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 2
+				technology = early_submarine
+				technology = basic_submarine
+				technology = improved_submarine
+				technology = advanced_submarine
+			}
+		}
+	}
+focus = {
+		id = NTD_cruiser
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = NTD_destroyer_effort }
+		x = 2
+		y = 1
+		relative_position_id = NTD_destroyer_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = improved_light_cruiser
+				technology = advanced_light_cruiser
+				technology = improved_heavy_cruiser
+				technology = advanced_heavy_cruiser
+			}
+		}
+	}
+focus = {
+		id = NTD_Battleship
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = NTD_cruiser }
+		x = 0
+		y = 1
+		relative_position_id = NTD_cruiser
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
+	}
+focus = {
+		id = NTD_Rulethewaves
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = NTD_Battleship }
+		prerequisite = { focus = NTD_submarine2 }
+		x = 1
+		y = 1
+		relative_position_id = NTD_submarine2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 6
+			add_building_construction = {
+				type = dockyard
+				level = 6
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 6
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 6
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 6
+					add_building_construction = {
+						type = dockyard
+						level = 6
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 6
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 6
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 6
+					add_building_construction = {
+						type = dockyard
+						level = 6
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 6
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 6
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 6
+					add_building_construction = {
+						type = dockyard
+						level = 6
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+focus = {
+		id = NTD_Rubberplants
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = NTD_construction2 }
+		x = 6
+		y = 1
+		relative_position_id = NTD_construction2
+
+		cost = 10
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			25 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		 add_resource = {
+				type = rubber
+				amount = 10
+				state = 25
+			}
+		}
+	}
+focus = {
+		id = NTD_closed
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = NTD_Justify }
+		available = {
+			OR = {
+				threat > 0.9
+				has_war = yes
+			}
+		}
+		continue_if_invalid = yes
+		x = 4
+		y = 3
+		relative_position_id = NTD_Justify
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+
+				add_ideas = closed_economy
+			}
+		}
+	
+		

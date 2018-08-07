@@ -1,0 +1,240 @@
+
+# MAIN THEME
+music = {
+	name = "maintheme"
+	file = "Inspired.ogg"
+	volume = 0.65
+}
+
+# General Peace:
+music = {
+	name = "general_peace_1"
+	file = "NotreDame.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "Welcome"
+	file = "welcome.ogg"
+	volume = 3.00
+}
+
+music = {
+	name = "newfrance"
+	file = "the_new_france.ogg"
+	volume = 0.65
+}
+music = {
+	name = "Chinese"
+	file = "Chinese.ogg"
+	volume = 0.65
+}
+music = {
+	name = "Chinese2"
+	file = "Chinese 2.ogg"
+	volume = 3.00
+}
+music = {
+	name = "general_peace_2"
+	file = "Missing.ogg"
+	volume = 0.65
+}
+music = {
+	name = "general_peace_3"
+	file = "Resistance.ogg"
+	volume = 0.65
+}
+music = {
+	name = "saladin"
+	file = "saladin.ogg"
+	volume = 0.65
+}
+music = {
+	name = "escape"
+	file = "escape.ogg"
+	volume = 3.00
+}
+music = {
+	name = "rasputin"
+	file = "rasputin.ogg"
+	volume = 0.65
+}
+
+# General war:
+music = {
+	name = "general_war_1"
+	file = "Overture.ogg"
+	volume = 3.00
+}
+music = {
+	name = "Death"
+	file = "Death.ogg"
+	volume = 2.00
+}
+music = {
+	name = "Carmen"
+	file = "Carmen.ogg"
+	volume = 2.00
+}
+music = {
+	name = "Running"
+	file = "running.ogg"
+	volume = 1.00
+}
+music = {
+	name = "Backstab"
+	file = "Backstab.ogg"
+	volume = 1.50
+}
+music = {
+	name = "commiechina"
+	file = "commiechina.ogg"
+	volume = 0.65
+}
+music = {
+	name = "world"
+	file = "world.ogg"
+	volume = 3.00
+}
+music = {
+	name = "Deja"
+	file = "deja.ogg"
+	volume = 0.65
+}
+music = {
+	name = "general_war_2"
+	file = "Danse.ogg"
+	volume = 0.65
+}
+music = {
+	name = "firebird"
+	file = "firebird.ogg"
+	volume = 3.00
+}
+
+
+# Allies Peace:
+music = {
+	name = "allies_peace_1"
+	file = "Italian.ogg"
+	volume = 0.65
+}
+music = {
+	name = "allies_peace_2"
+	file = "Myarmy.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "Sing"
+	file = "sing.ogg"
+	volume = 0.65
+}
+
+# Allies War:
+music = {
+	name = "allies_war_1"
+	file = "Aftermath.ogg"
+	volume = 0.65
+}
+music = {
+	name = "allies_war_2"
+	file = "Freedom.ogg"
+	volume = 0.65
+}
+
+
+# Axis Peace:
+music = {
+	name = "axis_peace_1"
+	file = "Empire.ogg"
+	volume = 0.65
+}
+music = {
+	name = "axis_peace_2"
+	file = "korean.ogg"
+	volume = 3.00
+}
+
+music = {
+	name = "One"
+	file = "One.ogg"
+	volume = 0.65
+}
+
+# Axis War:
+music = {
+	name = "axis_war_1"
+	file = "Axistheme.ogg"
+	volume = 0.65
+}
+music = {
+	name = "axis_war_2"
+	file = "GlorytoInca.ogg"
+	volume = 0.65
+}
+music = {
+	name = "axis_war_3"
+	file = "Kebab.ogg"
+	volume = 0.65
+}
+music = {
+	name = "axis_war_4"
+	file = "Gmarch.ogg"
+	volume = 0.65
+}
+
+
+# Comintern Peace:
+
+music = {
+	name = "comintern_peace_1"
+	file = "danceoftheknights.ogg"
+	volume = 3.00
+}
+music = {
+	name = "korobein"
+	file = "korobein.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "comintern_peace_2"
+	file = "Winter.ogg"
+	volume = 3.00
+}
+
+music = {
+	name = "comintern_peace_3"
+	file = "TheAndeanEmpire.ogg"
+	volume = 0.65
+}
+
+# Comintern War:
+
+music = {
+	name = "comintern_war_1"
+	file = "Redarmychoir1.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "Brother"
+	file = "Brother.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "comintern_war_2"
+	file = "Comintern.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "comintern_war_3"
+	file = "Company.ogg"
+	volume = 0.65
+}
+
+
+

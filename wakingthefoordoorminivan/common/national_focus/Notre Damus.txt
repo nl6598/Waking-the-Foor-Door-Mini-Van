@@ -1,0 +1,54 @@
+focus_tree = {
+	id = Notre_Damus_NTD_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NTD
+		}
+	}
+focus = {
+		id = NTD_deluxe1
+		icon = GFX_goal_generic_demand_territory
+		x = 1
+		y = 0
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+focus = {
+		id = NTD_deluxe2
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = NTD_deluxe1 }
+		x = 1
+		y = 1
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+focus = {
+		id = NTD_deluxe3
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = NTD_deluxe2 }
+		x = 1
+		y = 1
+		cost = 8
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	

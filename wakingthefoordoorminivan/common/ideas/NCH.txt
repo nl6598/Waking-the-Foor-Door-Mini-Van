@@ -1,0 +1,91 @@
+ideas = {
+
+	country = {
+		
+		NCH_the_kuomintang = {
+
+			name = NCH_the_kuomintang
+
+			picture = generic_intel_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					drift_defence_factor = 0.5
+					stability_factor = 0.05
+			}
+		}
+		
+	NCH_Japanese = {
+
+			name = NCH_Japanese
+
+			picture = warrior_traditions_idea
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					stability_factor = -0.25
+					political_power_cost = 0.25
+					research_time_factor = 0.25
+			}
+		}
+	NCH_Nine = {
+
+			name = NCH_Nine
+
+			picture = generic_wall_line
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				
+				consumer_goods_factor = 0.15
+			}
+		}
+	NCH_Disorganized = {
+
+			name = NCH_Disorganized
+
+			picture = anti_soviet_pact
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_org_regain = -0.05
+				training_time_factor = 0.02
+				land_reinforce_rate = -0.05
+				army_morale_factor = -0.25
+			}
+		}
+		

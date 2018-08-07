@@ -1,0 +1,681 @@
+focus_tree = {
+	id = MPU_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MPU
+		}
+	}
+	
+	continuous_focus_position = { x = 20 y = 1200 }
+
+focus = {
+		id = MPU_Puppet
+		icon = GFX_focus_CZE_german_puppet
+		mutually_exclusive = { focus = MPU_Defy_America }
+		x = 0
+		y = 0
+
+		cost = 10
+		
+		ai_will_do = {
+			factor = 12
+		}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+focus = {
+		id = MPU_Defy_America
+		icon = GFX_goal_generic_forceful_treaty
+		mutually_exclusive = { focus = MPU_Defy_America }
+		x = 8
+		y = 0
+
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = -120
+		}
+	}
+focus = {
+		id = MPU_The_New_Revolution
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = MPU_Defy_America}
+		x = 8
+		y = 1
+		relative_position = MPU_Defy_America
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = The_New_Revolution
+		}
+	}
+focus = {
+		id = MPU_End_Martial_Law
+		icon =  GFX_goal_generic_national_unity
+		prerequisite = { focus = MPU_The_New_Revolution}
+		x = 7
+		y = 2
+		relative_position = MPU_The_New_Revolution
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			remove_ideas = Martial_Law
+		}
+	}
+focus = {
+		id = MPU_Taxation
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = MPU_The_New_Revolution }
+		x = 1
+		y = 1
+		relative_position_id = MPU_The_New_Revolution
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			add_ideas = Mexican_Taxation
+		}
+	}
+focus = {
+		id = MPU_Pablo
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = MPU_End_Martial_Law }
+		x = 0
+		y = 1
+		relative_position_id = MPU_End_Martial_Law
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		completion_reward = {
+			add_ideas = MPU_The_Liberator
+		}
+	}
+focus = {
+		id = MPU_SecretMeeting1
+		prerequisite = { focus = MPU_Pablo }
+		available = {
+			JAL = { exists = yes }
+		} 
+		cancel = {
+			JAL = { exists = no }
+		}
+		icon = GFX_goal_generic_improve_relations
+		x = -2
+		y = 1
+		relative_position_id = MPU_Pablo
+		cost = 10
+		completion_reward = {
+			JAL = {
+						add_opinion_modifier = { target = MPU modifier = democratic_leanings_good }
+						
+					}
+		}
+	}
+focus = {
+		id = MPU_SecretMeeting2
+		prerequisite = { focus = MPU_SecretMeeting1 }
+		available = {
+			MXC = { exists = yes }
+		} 
+		cancel = {
+			MXC = { exists = no }
+		}
+		icon = GFX_goal_generic_improve_relations
+		x = -1
+		y = 1
+		relative_position_id = MPU_SecretMeeting1
+		cost = 10
+		completion_reward = {
+			MXC = {
+						add_opinion_modifier = { target = MPU modifier = democratic_leanings_good }
+						
+					}
+		}
+	}
+focus = {
+		id = MPU_SecretMeeting3
+		prerequisite = { focus = MPU_SecretMeeting1 }
+		available = {
+			TOT = { exists = yes }
+		} 
+		cancel = {
+			TOT = { exists = no }
+		}
+		icon = GFX_goal_generic_improve_relations
+		x = 1
+		y = 1
+		relative_position_id = MPU_SecretMeeting1
+		cost = 10
+		completion_reward = {
+			TOT = {
+						add_opinion_modifier = { target = MPU modifier = democratic_leanings_good }
+						
+					}
+		}
+	}
+focus = {
+		id = MPU_SecretMeeting4
+		prerequisite = { focus = MPU_SecretMeeting2 }
+		available = {
+			MIX = { exists = yes }
+		} 
+		cancel = {
+			MIX = { exists = no }
+		}
+		icon = GFX_goal_generic_improve_relations
+		x = 0
+		y = 1
+		relative_position_id = MPU_SecretMeeting2
+		cost = 10
+		completion_reward = {
+			MIX = {
+						add_opinion_modifier = { target = MPU modifier = democratic_leanings_good }
+						
+					}
+		}
+	}
+focus = {
+		id = MPU_SecretMeeting5
+		prerequisite = { focus = MPU_SecretMeeting3 }
+		available = {
+			OAX = { exists = yes }
+		} 
+		cancel = {
+			OAX = { exists = no }
+		}
+		icon = GFX_goal_generic_improve_relations
+		x = 0
+		y = 1
+		relative_position_id = MPU_SecretMeeting3
+		cost = 10
+		completion_reward = {
+			OAX = {
+						add_opinion_modifier = { target = MPU modifier = democratic_leanings_good }
+						
+					}
+		}
+	}
+focus = {
+		id = MPU_SecretMeeting6
+		prerequisite = { focus = MPU_SecretMeeting4 }
+		prerequisite = { focus = MPU_SecretMeeting5 }
+		available = {
+			YUC = { exists = yes }
+		} 
+		cancel = {
+			YUC = { exists = no }
+		}
+		icon = GFX_goal_generic_improve_relations
+		x = 1
+		y = 1
+		relative_position_id = MPU_SecretMeeting4
+		cost = 10
+		completion_reward = {
+			YUC = {
+						add_opinion_modifier = { target = MPU modifier = democratic_leanings_good }
+						
+					}
+		}
+	}
+focus = {
+		id = MPU_Appease_Socialists_Focus
+		icon =  GFX_goal_generic_soviet_construction
+		prerequisite = { focus = MPU_Taxation}
+		x = 9
+		y = 3
+		relative_position = MPU_Taxation
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = MPU_Appease_Socialists
+		}
+	}	
+focus = {
+		id = MPU_Rearmament
+		icon =  GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = MPU_Appease_Socialists_Focus}
+		x = 11
+		y = 4
+		relative_position = MPU_Appease_Socialists_Focus
+		cost = 10
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = MPU_Secret_Rearmament
+		}
+	}
+focus = {
+		id = MPU_Ideological_Haven
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = MPU_Pablo }
+		prerequisite = { focus = MPU_Appease_Socialists_Focus }
+		x = 1
+		y = 1
+		relative_position_id = MPU_Pablo
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+focus = {
+		id = MPU_construction_effort1
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = MPU_Rearmament}
+		x = -1
+		y = 1
+		relative_position_id = MPU_Rearmament
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+focus = {
+		id = MPU_Arms_Factory1
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = MPU_Rearmament }
+		x = 1
+		y = 1
+		relative_position_id = MPU_Rearmament
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MPU_construction_effort2
+		icon = GFX_goal_generic_construct_civ_factory
+		dynamic = yes
+		prerequisite = { focus = MPU_construction_effort1 }
+		x = 0
+		y = 1
+		relative_position_id = MPU_construction_effort1
+		cost = 10
+
+		available_if_capitulated = no
+
+		complete_tooltip = {
+			every_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = MPU_Arms_Factory2
+		icon = GFX_goal_generic_construct_mil_factory
+		dynamic = yes
+		prerequisite = { focus = MPU_Arms_Factory1 }
+		x = 0
+		y = 1
+		relative_position_id = MPU_Arms_Factory1
+		cost = 10
+
+		available_if_capitulated = no
+
+		complete_tooltip = {
+			every_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+focus = {
+		id = MUP_Infrastructure_Focus
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = MPU_Arms_Factory2 }
+		prerequisite = { focus = MPU_construction_effort2 }
+		x = 1
+		y = 1
+		relative_position_id = MPU_construction_effort2
+		cost = 10
+
+		available = {
+			OR = {
+				has_full_control_of_state = 481
+				has_full_control_of_state = 482
+				has_full_control_of_state = 483
+				has_full_control_of_state = 480
+				has_full_control_of_state = 484
+			}
+		}
+		
+		completion_reward = {
+
+				481 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+				482 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+				483 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+				480 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+				484 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 10
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+focus = {
+		id = MPU_equipment_effort
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = MPU_Ideological_Haven }
+		x = 0
+		y = 1
+		relative_position_id = MPU_Ideological_Haven
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+focus = {
+		id = MPU_equipment_effort_2
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = MPU_equipment_effort }
+		x = 0
+		y = 1
+		relative_position_id = MPU_equipment_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	

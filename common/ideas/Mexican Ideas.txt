@@ -1,0 +1,263 @@
+ideas = {
+
+	country = {
+	
+		The_Great_Split = {
+
+			name = The_Great_Split
+
+			picture = anti_soviet_pact
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.25
+			}
+		}
+		
+		American_Influence = {
+
+			name = American_Influence
+
+			picture = generic_pp_unity_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.05
+				drift_defence_factor = 0.5
+			}
+		}
+		
+		Martial_Law = {
+
+			name = Martial_Law
+
+			picture = generic_manpower_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.25
+				political_power_gain = -0.25
+			}
+		}
+		
+		Capitalist_Beliefs = {
+
+			name = Capitalist_Beliefs
+
+			picture = generic_victors_of_ww1
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					democratic_drift = 0.1
+			}
+		}
+		
+		Nahuatl_Beliefs = {
+
+			name = Nahuatl_Beliefs
+
+			picture = generic_purge
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					neutrality_drift = 0.1
+			}
+		}
+		
+		Mexican_Taxation = {
+
+			name = Mexican_Taxation
+
+			picture = generic_goods_red_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					consumer_goods_factor = -0.05
+			}
+		}
+		
+		MartialLaw_Gone_Focus = {
+
+			name = MartialLaw_Gone_Focus
+
+			picture = generic_pp_unity_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					stability_factor = 0.10
+			}
+		}
+		
+		Militarizedstate = {
+
+			name = Militarizedstate
+
+			picture = generic_disjointed_gov
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					stability_factor = -0.10
+					
+			}
+		}
+		
+	The_New_Revolution = {
+
+			name = The_New_Revolution
+
+			picture = generic_democratic_drift_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					democratic_drift = 0.05
+			}
+		}
+		
+	MPU_Secret_Rearmament = {
+			
+			name = MPU_Secret_Rearmament
+			
+			picture = generic_manpower_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					alwaus = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.20
+			}
+		}
+	
+	MPU_The_Liberator = {
+			
+			name = MPU_The_Liberator
+			
+			picture = idea_generic_army_south_america_3
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					alwaus = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.15
+				war_support_factor = 0.15
+				democratic_acceptance = 85
+			}
+		}
+	MPU_Appease_Socialists = {
+
+			name = MPU_Appease_Socialists
+
+			picture = idea_generic_build_infrastructure
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+			
+				production_speed_industrial_complex_factor = 0.10
+				communism_drift = 0.01
+			}
+		}	
+		
+		

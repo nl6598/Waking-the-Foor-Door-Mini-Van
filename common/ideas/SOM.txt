@@ -1,0 +1,369 @@
+ideas = {
+
+	country = {
+
+		SOM_Socialism_in_Africa = {
+
+			name = SOM_Socialism_in_Africa
+
+			picture = trotskyite_plot
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					drift_defence_factor = 0.5
+					stability_factor = 0.05
+			}
+		}
+	SOM_newrepublic = {
+
+			name = SOM_newrepublic
+
+			picture = generic_disjointed_gov
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_cost = 0.25
+				trade_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+	SOM_pirates = {
+
+			name = SOM_pirates
+
+			picture = anti_soviet_pact
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.50
+				production_speed_dockyard_factor = -0.50
+			}
+		}
+	SOM_workforce_focus = {
+
+			name = SOM_workforce
+
+			picture = idea_generic_build_infrastructure
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+			
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}	
+	SOM_militiafocus = {
+
+			name = SOM_Militia_Focus
+
+			picture = generic_manpower_bonus
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+			
+			training_time_factor = -0.25
+			army_attack_factor = -0.05
+			army_defence_factor = -0.05
+			army_org_regain = -0.02
+			
+			}
+		}	
+	}
+	
+	
+political_advisor = {
+	
+		SOM_yoloe_dodo = {
+
+			picture = idea_generic_political_advisor_europe_5
+				
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { silent_workhorse }
+		}
+		
+		SOM_Billiam_Biullas = {
+
+			picture = idea_generic_political_advisor_europe_6
+				
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { captain_of_industry }
+		}		
+		
+		SOM_bob_yope = {
+
+			picture = idea_generic_political_advisor_europe_3
+				
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { war_industrialist }
+		}			
+	}	
+army_chief = {
+		
+	
+		SOM_sssft_williams = {
+			
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+
+			
+			traits = { army_chief_morale_2 }
+		}
+		
+		SOM_dela_tydrone = {
+			
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+
+			
+			traits = { army_chief_drill_2 }
+		}	
+		
+		SOM_ixkla_tlacoco = {
+			
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+
+			
+			traits = { army_chief_offensive_2 }
+		}	
+		
+		SOM_stut_genigs = {
+			
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+
+			
+			traits = { army_chief_defensive_2 }
+		}	
+	}	
+	
+air_chief = {
+		
+		
+		SOM_tryzi_suct = {
+			
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+
+			
+			traits = { air_air_combat_training_2 }
+		}
+		
+		SOM_hry_aruld = {
+			
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+
+			
+			traits = { air_chief_night_operations_2 }
+		}
+		
+		SOM_somali_somnd = {
+			
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+
+			
+			traits = { air_chief_safety_2 }
+		}
+	}
+
+navy_chief = {
+		
+		SOM_paul_medinr = {
+			
+			picture = generic_navy_europe_3
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { navy_chief_decisive_battle_2 }
+		}
+
+		SOM_dred_scott = {
+			
+			picture = generic_navy_europe_1
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { navy_chief_maneuver_2 }
+		}
+	}
+	
+high_command = {
+
+		SOM_luz_lizzy = {
+
+			picture = generic_army_europe_1
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { army_infantry_2 }
+		}
+
+		SOM_lypid_fitx = {
+
+			picture = generic_army_europe_3
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { army_armored_2 }
+		}
+
+		SOM_damin_grend = {
+
+			picture = generic_air_europe_2
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { air_air_superiority_2 }
+		}
+
+		SOM_piere_delacasa = {
+
+			picture = generic_navy_europe_1
+			
+			allowed = {
+				original_tag = SOM
+			}
+			
+			traits = { navy_fleet_logistics_2 }
+		}
+	}
+
+theorist = {
+
+		SOM_alex_feder = {
+					
+			picture = generic_army_europe_1
+
+			allowed = {
+				original_tag = SOM
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			
+			traits = { military_theorist }
+		}
+
+		SOM_nicoas_dixmude = {
+					
+			picture = generic_air_europe_1
+				
+			allowed = {
+				original_tag = SOM
+			}
+			
+			research_bonus = {
+				air_doctrine = 0.07
+			}
+			
+			traits = { air_warfare_theorist }
+		}
+
+		SOM_floent_dtriveaux = {
+					
+			picture = generic_navy_europe_1
+				
+			allowed = {
+				original_tag = SOM
+			}
+			
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			
+			traits = { naval_theorist }
+		}
+	}
+
+		
+		
+		
+		
+		

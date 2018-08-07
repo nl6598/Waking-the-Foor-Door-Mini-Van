@@ -1,0 +1,620 @@
+ideas = {
+
+	country = {
+
+		INC_Glory_to_Andean = {
+
+			name = INC_Glory_to_Andean
+
+			picture = generic_victors_of_ww1
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					drift_defence_factor = 0.5
+					stability_factor = 0.05
+					neutrality_drift = 0.1
+			}
+		}
+		INC_Vaccinate_Focus = {
+		
+			name = INC_Vaccinate_Focus
+			
+			picture = generic_morale_bonus
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+
+			picture = generic_morale_bonus
+	
+			modifier = {
+				army_morale_factor = 0.1
+			}
+		}
+		INC_Supay_Focus = {
+		
+			name = INC_Supay_Focus
+			
+			picture = generic_manpower_bonus
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+	
+			modifier = {
+				army_org = 5
+			}
+		}
+	INC_Apu_Focus = {
+		
+			name = INC_Apu_Focus
+			
+			picture = generic_manpower_bonus
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+	
+			modifier = {
+				production_speed_bunker_factor = 0.5
+			}
+		}
+	INC_Cavillace_Focus = {
+
+		allowed_civil_war = {
+			always = yes
+		}
+			
+		removal_cost = -1
+
+		picture = generic_manpower_bonus
+		
+		modifier = {
+			conscription = 0.025
+		}
+	}
+	
+	INC_revanchism_focus = {
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		removal_cost = -1
+		
+		picture = generic_pp_unity_bonus
+		
+		modifier = {
+			justify_war_goal_time = -0.25
+			generate_wargoal_tension = -0.5
+			war_support_factor = 0.05
+		}
+	}
+	
+	INC_inflation = {
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			picture = great_depression
+			
+			modifier = {
+				political_power_cost = 1
+				consumer_goods_factor = 0.5
+			}
+		}
+
+	INC_MamaCocha_Focus = {
+
+		allowed_civil_war = {
+			always = yes
+		}
+			
+		removal_cost = -1
+
+		picture = generic_manpower_bonus
+		
+		equipment_bonus = {
+				destroyer = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		
+	}
+	INC_Pariacaca_Focus = {
+
+		allowed_civil_war = {
+			always = yes
+		}
+			
+		removal_cost = -1
+
+		picture = generic_manpower_bonus
+		
+		equipment_bonus = {
+				fighter_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+	}
+	INC_MamaZara_Focus = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_manpower_bonus
+			
+			modifier = {
+				consumer_goods_factor = -0.1
+				stability_factor = 0.05
+			}
+		}
+	INC_Sacrifice_Focus = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_purge
+			
+			modifier = {
+				stability_factor = -0.05
+				army_attack_factor = 0.1
+				army_morale_factor = 0.1
+				army_defence_factor = 0.05
+			}
+		}
+	INC_Sacrifice2_Focus = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_purge
+			
+			modifier = {
+				stability_factor = -0.1
+				army_defence_factor = 0.1
+			}
+		}
+	INC_Sacrifice3_Focus = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_purge
+			
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = 0.05
+				army_defence_factor = 0.1
+				conscription = -0.01
+			}
+		}
+		INC_Sacrifice4_Focus = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_purge
+			
+			modifier = {
+				stability_factor = -0.50
+				war_support_factor = 0.10
+				army_defence_factor = 0.1
+				conscription = -0.03
+			}
+		}
+	}
+	
+	political_advisor = {
+
+		INC_armando_reveredo_iglesias = {
+
+			picture = generic_political_advisor_south_america_1
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { war_industrialist }
+		}
+
+		INC_oscar_miro_quesada = {
+
+			picture = generic_political_advisor_south_america_2
+				
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { silent_workhorse }
+		}
+
+		INC_reynaldo_vinatea = {
+
+			picture = generic_political_advisor_south_america_1
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { ideological_crusader }
+		}
+
+		INC_jose_bustamante_y_rivero = {
+
+			picture = generic_political_advisor_south_america_3
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { compassionate_gentleman }
+		}
+	}
+
+	theorist = {
+
+		INC_luis_ramirez_ortiz = {
+					
+			picture = generic_army_south_america_1
+
+			allowed = {
+				original_tag = INC
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			
+			traits = { military_theorist }
+		}
+
+		INC_romulo_frias = {
+					
+			picture = generic_air_south_america_1
+				
+			allowed = {
+				original_tag = INC
+			}
+			
+			research_bonus = {
+				air_doctrine = 0.07
+			}
+			
+			traits = { air_warfare_theorist }
+		}
+
+		INC_ernesto_scroth = {
+					
+					
+			allowed = {
+				original_tag = INC
+			}
+			
+			picture = generic_political_advisor_south_america_1
+			
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			
+			traits = { naval_theorist }
+		}
+	}
+
+	high_command = {
+
+		INC_eloy_g_ureta = {
+
+			picture = generic_army_south_america_1
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { army_logistics_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		PRU_rafael_escardo = {
+
+			picture = generic_army_south_america_2
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { army_infantry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_eduardo_montero_rojas = {
+
+			picture = generic_army_south_america_4
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { army_armored_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_luis_navarrete = {
+
+			picture = generic_navy_south_america_1
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { navy_carrier_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_fernando_m_quesada_blanco = {
+
+			picture = generic_air_south_america_1
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { air_strategic_bombing_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_alberto_lopez_flores = {
+
+			picture = generic_air_south_america_1
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+			traits = { air_airborne_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	# MILITARY
+	army_chief = {
+
+		INC_oscar_benavides_larrea = {
+			
+			picture = generic_army_south_america_2
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { army_chief_defensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		INC_oscar_gilardi = {
+			
+			picture = generic_army_south_america_5
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { army_chief_drill_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_vladimiro_lopez_trigoso = {
+			
+			picture = generic_army_south_america_3
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_manuel_odria_amoretti = {
+			
+			picture = generic_army_south_america_2
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { army_chief_organizational_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	air_chief = {
+
+		INC_paul_de_beaudiez = {
+			
+			picture = generic_air_south_america_3
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { air_chief_safety_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_eduardo_cantabria_gomez = {
+			
+			picture = generic_air_south_america_2
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { air_chief_reform_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	navy_chief = {
+
+		INC_alberto_roque_saldias = {
+			
+			picture = generic_navy_south_america_2
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { navy_chief_decisive_battle_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		INC_felipe_tudela = {
+			
+			picture = generic_navy_south_america_3
+			
+			allowed = {
+				original_tag = INC
+			}
+			
+
+			
+			traits = { navy_chief_commerce_raiding_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}	
+	
+	

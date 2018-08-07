@@ -1,0 +1,24 @@
+add_namespace = notre damus
+
+# 1936 Start
+country_event = {
+	id = 1936start.1
+	title = 1936start.1.t
+	desc = 1936start.1.d
+	picture = GFX_news_event_chinese_soldiers_march
+	
+	is_triggered_only = no
+
+		trigger = {
+		
+		}
+	}	
+	
+		mean_time_to_happen = { days = 5 }
+
+		option = {
+		name = Ready Up!
+		ai_chance = { factor = 100 }
+		}
+}
+

@@ -1,0 +1,333 @@
+ideas = {
+
+	country = {
+
+		EOA_Will_of_Allah = {
+
+			name = EOA_Will_of_Allah
+
+			picture = idea_raj_marginalized_muslim_community_angry
+			
+			allowed = {
+					always = no
+			}
+
+			allowed_civil_war = {
+					always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+					drift_defence_factor = 0.5
+					stability_factor = 0.05
+					neutrality_drift = 0.1
+			}
+		}
+		
+		EOA_Outdated_Country = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			picture = generic_research_bonus
+			
+			removal_cost = -1
+			
+			modifier = {
+				research_time_factor = +01.00
+			}
+		}
+		
+		EOA_Calvary = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+					always = yes
+			}
+			
+			picture = generic_infantry_bonus
+			
+			removal_cost = -1
+			
+			modifier = {
+					army_org_Factor = 0.05
+					attrition = -0.1
+				}
+			}
+			
+		EOA_cultural_tensions = {
+
+			picture = anti_soviet_pact
+
+			allowed = { 
+					always = no
+			}		
+
+			allowed_civil_war = {
+					always = yes
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = -0.01
+			}
+		}
+	}
+	
+	political_advisor = {
+
+		EOA_moukhled_al_asmari = {
+
+			picture = generic_political_advisor_arab_1
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { captain_of_industry }
+		}
+
+		EOA_arthur_dawkins = {
+
+			picture = generic_political_advisor_europe_2
+				
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { war_industrialist }
+		}
+
+		EOA_salih_al_rajihi = {
+
+			picture = generic_political_advisor_arab_3
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { smooth_talking_charmer }
+		}
+
+		EOA_crown_prince_saud = {
+
+			picture = generic_political_advisor_arab_2
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { popular_figurehead }
+		}
+	}
+
+	theorist = {
+
+		EOA_sa_ad_shaddad_al_outaibi = {
+					
+			picture = generic_army_arab_1
+
+			allowed = {
+				original_tag = EOA
+			}
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+			
+			traits = { military_theorist }
+		}
+
+		EOA_hamed_al_sabani = {
+					
+			picture = generic_navy_arab_2
+				
+			allowed = {
+				original_tag = EOA
+			}
+			
+			research_bonus = {
+				naval_doctrine = 0.07
+			}
+			
+			traits = { naval_theorist }
+		}
+	}
+
+	high_command = {
+
+		EOA_saud_al_saud = {
+
+			picture = generic_army_europe_1
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { army_logistics_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		EOA_youssef_al_bishi = {
+
+			picture = generic_army_europe_2
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { army_armored_1 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		EOA_faisal_saud = {
+
+			picture = generic_navy_arab_3
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { navy_fleet_logistics_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		EOA_karim_nassar = {
+
+			picture = generic_army_arab_3
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { army_cavalry_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	# MILITARY
+	army_chief = {
+
+		EOA_faisal_al_saud = {
+			
+			picture = generic_army_arab_1
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { army_chief_maneuver_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		EOA_ismail_ali_al_salhi = {
+			
+			picture = generic_army_europe_3
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { army_chief_offensive_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	air_chief = {
+		
+
+		EOA_ali_muhammed_khan = {
+			
+			picture = generic_air_arab_2
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { air_chief_ground_support_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		EOA_gholam_wali = {
+			
+			picture = generic_air_arab_1
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { air_chief_reform_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+	}
+
+	navy_chief = {
+
+		EOA_hamadan_al_odha = {
+			
+			picture = generic_navy_europe_2
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { navy_chief_commerce_raiding_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		EOA_philip_gordon_lee = {
+			
+			picture = generic_navy_europe_1
+			
+			allowed = {
+				original_tag = EOA
+			}
+			
+			traits = { navy_chief_naval_aviation_2 }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}	
+	

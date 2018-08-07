@@ -1,0 +1,31 @@
+##############################################
+#  Warstarian Events
+##############################################
+
+add_namespace = warstarian
+
+# The Canadian Crisis
+country_event = {
+	id = warstarian.1
+	title = warstarian.1.t
+	desc = warstarian.1.d
+	picture = GFX_report_event_adrian_wins
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = WSC
+		has_completed_focus = WSC_Oppressed_Anti_Communist
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = warstarian.1.a
+		ai_chance = { factor = 100 }
+		add_political_power = 25
+		news_event = news_event.420
+	}
+}

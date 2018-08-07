@@ -1,0 +1,3062 @@
+focus_tree = {
+	id = Warstarian_CoalitionWSC_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = WSC
+		}
+	}
+	
+	focus = {
+		id = WSC_the_canadian_crisis
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		x = 10
+		y = 0
+		#relative_position_id = ITA_industrial_effort_2
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = WSC_prepare_for_war
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = WSC_Alaskan_defensive_lines }
+		prerequisite = { focus = WSC_equipment_effort }
+		prerequisite = { focus = WSC_mass_mobilization }
+		x = 10
+		y = 2
+		#relative_position_id = production_effort_2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = WSC_Oppressed_Anti_Communist
+		icon = GFX_goal_generic_demand_territory
+	   #text = extra_tech_slot
+		prerequisite = { focus = WSC_prepare_for_war }
+		x = 10
+		y = 3
+		#relative_position_id = ITA_industrial_effort_2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			transfer_state = 471
+			transfer_state = 473
+			transfer_state = 740
+			transfer_state = 739
+			transfer_state = 472
+			transfer_state = 683
+			transfer_state = 470
+			transfer_state = 469
+			transfer_state = 467
+		}
+	}
+		
+	focus = {
+		id = WSC_Industrializing_Alaska
+		icon = GFX_goal_generic_production
+		x = 2
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = WSC_total_war
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = WSC_Industrializing_Alaska }
+		mutually_exclusive = { focus = WSC_Balanced_Economy }
+		x = 0
+		y = 1
+		#relative_position_id = production_effort_2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WSC_Balanced_Economy
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = WSC_Industrializing_Alaska }
+		mutually_exclusive = { focus = WSC_total_war }
+		x = 4.5
+		y = 1
+		#relative_position_id = production_effort_2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WSC_reforming_the_army
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 7
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = WSC_airforce
+		icon = GFX_goal_generic_build_airforce
+		x = 21
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+	complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = WSC_equipment_effort
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = WSC_reforming_the_army }
+		x = 7
+		y = 1
+		relative_position_id = army_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = WSC_the_homefront
+		icon = GFX_goal_generic_construct_military
+		x = 13.5
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = WSC_mass_mobilization
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = WSC_the_homefront }
+		x = 12
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			remove_ideas = WSC_wait_a_minute
+		}
+	}
+	
+	focus = {
+		id = WSC_militarism
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = WSC_reforming_the_army }
+		x = -10
+		y = -1
+		relative_position_id = nationalism_focus
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = neutrality_idea }
+				remove_ideas = neutrality_idea
+			}			
+			add_ideas = militarism_focus
+			army_experience = 20
+		}
+	}
+	
+	focus = {
+		id = WSC_strike_the_source
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = WSC_Oppressed_Anti_Communist }
+		will_lead_to_war_with = CAN
+
+		cancel = {
+			NOT = { country_exists = CAN }
+		}
+		x = 10
+		y = 4
+		cost = 10
+		bypass = {
+			has_war_with = CAN
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = CAN
+			}
+			remove_ideas = WSC_the_great_trek
+		}
+	}
+	
+	focus = {
+		id = WSC_Alaskan_defensive_lines
+		prerequisite = { focus = WSC_the_canadian_crisis }
+		icon = GFX_goal_generic_fortify_city
+		x = 10
+		y = 1
+		cost = 10
+
+		available = {
+			463 = {
+				CONTROLLER = {
+					
+				}
+			}
+		}
+
+		available_if_capitulated = no
+
+		completion_reward = { 
+			463 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 13091
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_war_logistics
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = WSC_total_war }
+		x = 0
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_infrastructure_focus
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = WSC_Balanced_Economy }
+		x = 4
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_strengthen_government_support
+		icon = GFX_goal_generic_demand_territory
+		available = {
+		}
+	 	prerequisite = {
+	 		focus = WSC_triumph_in_canada
+	 	}
+		x = -4
+		y = 4
+		relative_position_id = FRA_little_entente
+		cost = 10
+
+		available_if_capitulated = yes
+
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			set_country_flag = FRA_strengthen_government_support_focus_flag
+			add_timed_idea = {
+				idea = FRA_strengthen_government_support_focus
+				days = 365
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_military_complex
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = WSC_war_logistics 
+						 focus = WSC_infrastructure_focus }
+					   
+		x = 2
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2			
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_triumph_in_canada
+		available = {
+			OR = {
+				CAN = { has_capitulated = yes }
+				NOT = { country_exists = CAN }
+			}
+		}
+		x = 10
+		y = 5
+		cost = 10 
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = {focus = WSC_strike_the_source}
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.25
+		}
+	}
+	
+	focus = {
+		id = WSC_Foreign_Affairs
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = {focus = WSC_triumph_in_canada}
+		available = {
+			OR = {
+				CAN = { has_capitulated = yes }
+				NOT = { country_exists = CAN }
+			}
+		}
+		x = 13
+		y = 6
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+	
+	focus = {
+		id = WSC_Expanded_research
+		icon = GFX_goal_generic_production
+		prerequisite = {
+			focus = WSC_infrastructure_focus
+		}
+		x = 4
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	
+		focus = {
+		id = WSC_rationing_programs
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = WSC_war_logistics }
+		x = 0
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = construction_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}			
+		}
+
+		completion_reward = {
+			add_stability = -0.01
+			add_war_support = 0.01
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WSC_equipment_effort_2
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = WSC_equipment_effort }
+		x = 7
+		y = 2
+		relative_position_id = army_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_warstarian_tanks
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = WSC_equipment_effort }
+		x = 6
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 2
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = WSC_military_factory_construction
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = WSC_rationing_programs }
+		x = 0
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WSC_Civilian_Buildup
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = WSC_Expanded_research }
+		x = 4
+		y = 4
+		#relative_position_id = production_effort_2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}					
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}		
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_first_research
+		icon = GFX_focus_research
+		prerequisite = { focus = WSC_military_factory_construction
+						 focus = WSC_Civilian_Buildup }
+
+		available = {
+			num_of_factories > 10
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 2
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}	
+
+	focus = {
+		id = WSC_excavators
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = WSC_Civilian_Buildup }
+		x = 5
+		y = 5
+		cost = 10
+
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 8
+				state = 463
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = WSC_warstarian_tanks}
+		prerequisite = {focus = WSC_equipment_effort_2}
+
+		x = 6
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_WSSF
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = WSC_equipment_effort_2}
+		prerequisite = { focus = WSC_warstarian_tanks }
+		
+		x = 8
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_Propaganda_effort
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = WSC_military_factory_construction }
+		x = -1
+		y = 5
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 2			
+		}
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = production_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = arms_factory
+						size < 1
+						include_locked = yes
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = WSC_Naval_program
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = {focus = WSC_military_factory_construction}
+		x = 1
+		y = 5
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 1
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+	}	
+	
+	focus = {
+		id = WSC_Seize_the_oil_fields
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = WSC_Civilian_Buildup }
+		x = 3
+		y = 5
+
+		cost = 10
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			463 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		 add_resource = {
+				type = oil
+				amount = 4
+				state = 463
+			}
+		}
+	}	
+	
+	focus = {
+		id = WSC_doctrine_effort2
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = WSC_doctrine_effort }
+		prerequisite = { focus = WSC_WSSF }
+						 
+		x = 7
+		y = 4
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_military_youth
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = WSC_the_homefront }
+		x = 14
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
+	}
+	
+	focus = {
+		id = WSC_neutrality_focus
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = WSC_strengthen_government_support }
+		mutually_exclusive = { focus = WSC_Intervene }
+		x = 9
+		y = 7
+		cost = 10
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				tag = AUS
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_idea = neutrality_idea } }
+				add_ideas = neutrality_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_Intervene
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = WSC_Foreign_Affairs }
+		mutually_exclusive = { focus = WSC_neutrality_focus }
+		x = 11
+		y = 7
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_idea = neutrality_idea
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = neutrality_idea }
+				remove_ideas = neutrality_idea
+			}	
+			set_rule = { can_send_volunteers = yes }
+			add_ideas = volunteer_corps_focus
+		}
+	}
+	
+	focus = {
+		id = WSC_the_east
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = WSC_Intervene }
+		x = 12
+		y = 8
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				technology = paratroopers2
+				technology = paratroopers3
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_Opperation_Newfoundland
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = WSC_the_east }
+		will_lead_to_war_with = ENG
+
+		cancel = {
+			NOT = { country_exists = ENG }
+		}
+		x = 11
+		y = 9
+		cost = 10
+		bypass = {
+			has_war_with = ENG
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ENG
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_Denmark
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = WSC_the_east }
+		will_lead_to_war_with = DEN
+
+		cancel = {
+			NOT = { country_exists = DEN }
+		}
+		x = 13
+		y = 9
+		cost = 10
+		bypass = {
+			has_war_with = DEN
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = DEN
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = WSC_Warstarian_Navy
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 17
+		y = 0
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		available = {
+			any_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_tooltip = {
+			navy_experience = 25
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					any_owned_state = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						dockyard > 0
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = naval_effort_built }
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_state = {
+					limit = {
+						controller = { tag = ROOT }
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+	}
+	
+	focus = {
+		id = WSC_The_new_wolfpack
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = WSC_Warstarian_Navy }
+		mutually_exclusive = { focus = WSC_waves }
+		x = 16
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	focus = {
+		id = WSC_waves
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = WSC_Warstarian_Navy }
+		mutually_exclusive = { focus = WSC_The_new_wolfpack}
+		x = 18
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 0.5
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_submarine_effort
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = WSC_The_new_wolfpack }
+		x = 15
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = early_submarine
+				technology = basic_submarine
+				technology = improved_submarine
+				technology = advanced_submarine
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_Submarine_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = WSC_submarine_effort }
+		x = 15
+		y = 3
+		cost = 10
+			
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = GER_modular_construction
+		}
+	}
+	
+	focus = {
+		id = WSC_Cruiser_effort
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = WSC_waves }
+		x = 17
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = improved_light_cruiser
+				technology = advanced_light_cruiser
+				technology = improved_heavy_cruiser
+				technology = advanced_heavy_cruiser
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_capital
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = WSC_Cruiser_effort }
+		x = 17
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 4
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
+	}
+
+	focus = {
+		id = WSC_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = WSC_airforce }
+		mutually_exclusive = { focus = WSC_bomber_focus }
+		x = 20
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 3
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = WSC_airforce }
+		mutually_exclusive = { focus = WSC_fighter_focus }
+		x = 22
+		y = 1
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 3
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_fighter
+		prerequisite = { focus = WSC_fighter_focus }
+		icon = GFX_goal_generic_air_production
+		x = 20
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = british_fighter_discount
+		}
+	}
+	
+	focus = {
+		id = WSC_NAV_effort
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = WSC_bomber_focus }
+		x = 22
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_aviation_effort
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = WSC_fighter
+						 focus = WSC_NAV_effort}
+	
+		x = 21
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		complete_tooltip = {
+			air_experience = 25
+			if = { limit = { has_country_flag = aviation_effort_AB }
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+
+		completion_reward = {
+			air_experience = 25
+
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+				capital_scope = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+			}
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_paramilitarism
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = WSC_mass_mobilization}
+		x = 12.5
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = paramilitarism_focus
+		}
+	}
+	
+	focus = {
+		id = WSC_Cuban_gurantee
+		icon = GFX_goal_generic_improve_relations
+		available = {
+			CUB = { exists = yes }
+			is_puppet = no
+			NOT = { has_war_with = CUB}
+		}
+	 	prerequisite = { focus = WSC_Foreign_Affairs }
+		x = 15
+		y = 7
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			give_guarantee = CUB
+		}
+	}
+	
+	focus = {
+		id = WSC_The_faction
+		icon = GFX_goal_anschluss
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		prerequisite = { focus = WSC_Foreign_Affairs}
+		x = 13
+		y = 7
+		cost = 10
+
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = WSTC
+		}
+	}
+	
+	focus = {
+		id = WSC_denounce_america
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = WSC_Intervene }
+		x = -1
+		y = 3
+		relative_position_id = paramilitarism
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = ideological_fanaticism_focus
+			hidden_effect = {
+				set_rule = { can_use_kamikaze_pilots = yes }
+			}
+			custom_effect_tooltip = kamikaze_focus_tooltip
+		}
+	}
+	
+	focus = {
+		id = WSC_To_Washington
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = WSC_denounce_america }
+		will_lead_to_war_with = USA
+
+		cancel = {
+			NOT = { country_exists = USA }
+		}
+		x = 15
+		y = 9
+		cost = 10
+		bypass = {
+			has_war_with = USA
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = USA
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_The_Western_Burden
+		prerequisite = { focus = WSC_Intervene }
+		icon = GFX_goal_generic_war_with_comintern
+		x = 18
+		y = 8
+		cost = 10
+
+		available = {
+			463 = {
+				CONTROLLER = {
+				}
+			}
+		}
+
+		available_if_capitulated = yes
+
+		# Needs province based trigger to work properly
+		#bypass = {
+		#	447 = {
+		#		free_building_slots = {
+		#			building = coastal_bunker
+		#			size < 1
+		#		}
+		#		free_building_slots = {
+		#			building = naval_base
+		#			size < 1
+		#		}
+		#		free_building_slots = {
+		#			building = air_base
+		#			size < 1
+		#		}
+		#		free_building_slots = {
+		#			building = bunker
+		#			size < 1
+		#		}
+		#	}
+		#}
+
+		completion_reward = {
+				add_building_construction = {
+					type = naval_base
+					level = 5
+					province = 13091
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 5
+					province = 7855
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		focus = {
+		id = WSC_Siberia
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = WSC_The_Western_Burden }
+		will_lead_to_war_with = SOV
+
+		cancel = {
+			NOT = { country_exists = SOV }
+		}
+		x = 18
+		y = 9
+		cost = 10
+		bypass = {
+			has_war_with = SOV
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+		}
+	}
+		
+	focus = {
+		id = WSC_Fortify_Canada
+		prerequisite = { focus = WSC_paramilitarism }
+		icon = GFX_goal_generic_fortify_city
+		x = 12
+		y = 3
+		cost = 10
+
+		available = {
+				OR = {
+			CAN = { has_capitulated = yes }
+			NOT = { country_exists = CAN }
+			}
+		}			
+		available_if_capitulated = no
+
+		completion_reward = { 
+			276 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 3778
+					instant_build = yes
+				}
+			}
+		}
+	}
+		focus = {
+		id = WSC_The_Canadian_Maginot
+		prerequisite = { focus = WSC_Fortify_Canada }
+		icon = GFX_goal_generic_fortify_city
+		x = 12
+		y = 4
+		cost = 20
+
+		available = {
+				OR = {
+			CAN = { has_capitulated = yes }
+			NOT = { country_exists = CAN }
+			}
+		}			
+		available_if_capitulated = no
+
+		completion_reward = { 
+			276 = {
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 749
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 9667
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 9711
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 3775
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 4270
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 6625
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 3605
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+		focus = {
+		id = WSC_Extend_The_Canadian_Maginot
+		prerequisite = { focus = WSC_The_Canadian_Maginot }
+		icon = GFX_goal_generic_fortify_city
+		x = 12
+		y = 5
+		cost = 10
+
+		available = {
+				OR = {
+			CAN = { has_capitulated = yes }
+			NOT = { country_exists = CAN }
+			}
+		}			
+		available_if_capitulated = no
+
+		completion_reward = { 
+			468 = {
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 7345
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 7289
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 10230
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 10174
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 10
+					province = 1284
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 12241
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 12291
+					instant_build = yes
+				}
+			}
+			465 = {
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 4362
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 634
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 4342
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WSC_Mountain_Fortress
+		prerequisite = { focus = WSC_The_Canadian_Maginot }
+		icon = GFX_goal_generic_fortify_city
+		x = 14
+		y = 4
+		cost = 20
+
+		available = {
+				OR = {
+			CAN = { has_capitulated = yes }
+			NOT = { country_exists = CAN }
+			}
+		}			
+		available_if_capitulated = no
+
+		completion_reward = { 
+			473 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 1408
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 4428
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 7753
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 7677
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 12578
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 7820
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WSC_Extend_the_Fortress
+		prerequisite = { focus = WSC_Mountain_Fortress }
+		icon = GFX_goal_generic_fortify_city
+		x = 16
+		y = 4
+		cost = 10
+
+		available = {
+				OR = {
+			CAN = { has_capitulated = yes }
+			NOT = { country_exists = CAN }
+			}
+		}			
+		available_if_capitulated = no
+
+		completion_reward = { 
+			470 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 1262
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 7718
+					instant_build = yes
+				}
+			}
+			469 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 10552
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 3769
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 12603
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 1788
+					instant_build = yes
+				}
+			}	
+			467 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 1848
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 12145
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 4790
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 1873
+					instant_build = yes
+				}
+			}
+			682 = {
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 4875
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 1764
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 7899
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 5
+					province = 12582
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = WSC_Canadian_Railways
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = WSC_Mountain_Fortress }
+		x = 14
+		y = 5
+		cost = 10
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 2
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+}	
+focus = {
+		id = WSC_Canadian_Railways2
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = WSC_Extend_the_Fortress }
+		x = 16
+		y = 5
+		cost = 10
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {			
+					free_building_slots = {
+						building = infrastructure
+						size < 2
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 2
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+}	
+focus = {
+		id = WSC_extra_tech_slot_2
+		icon = GFX_focus_research
+		prerequisite = { focus = WSC_first_research }
+		available = {
+			num_of_factories > 50
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		x = 2
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}	
+
+	
+
+	
