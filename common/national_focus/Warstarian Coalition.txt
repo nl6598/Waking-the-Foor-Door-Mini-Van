@@ -3065,7 +3065,7 @@ focus = {
 	
 	focus = {
 		id = WSC_oppose_arcand
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_support_democracy
 		#text = extra_tech_slot
 		#prerequisite = { focus = ITA_industrial_effort_2 }
 		x = 28
@@ -3087,7 +3087,7 @@ focus = {
 	
 	focus = {
 		id = WSC_origins_of_the_coalition
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_generic_intelligence_exchange
 		#text = extra_tech_slot
 		prerequisite = { focus = WSC_oppose_arcand}
 		x = 0
@@ -3173,7 +3173,7 @@ focus = {
 	
 	focus = {
 		id = WSC_two_pronged_attack
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_generic_position_armies
 		#text = extra_tech_slot
 		prerequisite = { focus = WSC_american_crisis}
 		available = { 
@@ -3217,12 +3217,13 @@ focus = {
 				transfer_state = 469
 				transfer_state = 467
 			}
+			remove_ideas = WSC_the_great_trek
 		}
 	}
 	
 	focus = {
 		id = WSC_a_dream_of_unity
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_generic_national_unity
 		#text = extra_tech_slot
 		prerequisite = { focus = WSC_two_pronged_attack}
 		x = 0
@@ -3342,7 +3343,7 @@ focus = {
 	
 	focus = {
 		id = WSC_the_world_stage
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_anschluss
 		#text = extra_tech_slot
 		prerequisite = { focus = WSC_bastion_of_democracy }
 		prerequisite = { focus = WSC_guarantee_the_caribbean }
@@ -3358,7 +3359,8 @@ focus = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			
+			set_rule = { can_create_factions = yes }
+			create_faction = "Anchorage Accords"
 		}
 	}
 	
@@ -3384,7 +3386,7 @@ focus = {
 	
 	focus = {
 		id = WSC_intervention_in_japan
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_generic_occupy_states_coastal
 		#text = extra_tech_slot
 		prerequisite = { focus = WSC_the_eastern_problem }
 		x = -1
@@ -3398,13 +3400,16 @@ focus = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = JAP
+			}
 		}
 	}
 	
 	focus = {
 		id = WSC_tame_the_red_bear
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_goal_generic_war_with_comintern
 		#text = extra_tech_slot
 		prerequisite = { focus = WSC_the_eastern_problem }
 		x = 1
@@ -3418,7 +3423,10 @@ focus = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SOV
+			}
 		}
 	}
 	
