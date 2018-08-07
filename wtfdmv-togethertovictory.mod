@@ -1,5 +1,5 @@
 ﻿name="WTFDMV - Together To Victory"
-path="mod/wtfdmv-togethertovictory/"
+path="mod/Waking-the-Foor-Door-Mini-Van/"
 tags={
 	"Alternative History"
 	"National Focuses"

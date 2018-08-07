@@ -60,7 +60,7 @@ create_country_leader = {
 
 create_corps_commander = {
 	name = "Howard Graham"
-	portrait_path = "portrait_europe_generic_land_13"
+	picture = "portrait_europe_generic_land_13.dds"
 	traits = { guerilla_fighter }
 	skill = 3
 	attack_skill = 2

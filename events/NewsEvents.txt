@@ -13000,3 +13000,78 @@ news_event = {
 		trigger = { TAG = GER }
 	}
 }
+
+#Democratic Warstarian Declaration of War Upon Canada
+news_event = {
+	id = news.424
+	title = news.424.t
+	desc = news.424.d
+	picture = GFX_report_event_adrian_wins
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.424.a
+		trigger = {
+			NOT = {
+				TAG = WSC
+			}
+		}
+	}
+	option = {
+		name = news.424.b
+		trigger = { TAG = WSC }
+	}
+}
+
+#Canadian Liberals + Fashies Rise Up for the Coalition
+news_event = {
+	id = news.425
+	title = news.425.t
+	desc = news.425.d
+	picture = GFX_report_event_adrian_wins
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.425.a
+		trigger = {
+			NOT = {
+				TAG = WSC
+			}
+		}
+	}
+	option = {
+		name = news.425.b
+		trigger = { TAG = WSC }
+	}
+}
+
+#Quebec Uprising
+news_event = {
+	id = news.426
+	title = news.426.t
+	desc = news.426.d
+	picture = GFX_report_event_adrian_wins
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.426.a
+		trigger = {
+			NOT = {
+				TAG = WSC
+			}
+		}
+	}
+	option = {
+		name = news.426.b
+		trigger = { TAG = WSC }
+	}
+}

@@ -2189,6 +2189,9 @@ WSC_Canadian_Railways2_desc:0 "Further constructing more railroad lines will gur
 WSC_extra_tech_slot_2:0 "Extra Research Slot II"
 WSC_extra_tech_slot_2_desc:0 "Our heavy industrial might of Canada has allowed us to further maximize our R&D potentials."
 
+two_pronged_attack_if_tooltip:0 "§GIf the Two Pronged Attack Plan Succeeds:§!\n"
+chance_for_revolution_in_the_east:0 "§GThere is a chance that the Fascists and Liberals of Canada will join our ranks, and if they were to, we would: §!"
+
 EOA_political: "Reassure the Empire"
 EOA_political_desc: "While our empire may be strong and mighty, there is still much to do. The world will embrace the path of Allah and the Arab culture."
 EOA_industrial_effort: "Industrializing Arabia"

@@ -16,13 +16,15 @@ focus_tree = {
 		#text = extra_tech_slot
 		#prerequisite = { focus = ITA_industrial_effort_2 }
 		x = 10
-		y = 0
+		y = -1
 		#relative_position_id = ITA_industrial_effort_2
 		cost = 10
 		#ai_will_do = {
 		#	factor = 1
 		#}
 
+		mutually_exclusive = { focus = WSC_oppose_arcand }
+		
 		available_if_capitulated = yes
 
 		completion_reward = {
@@ -376,9 +378,9 @@ focus_tree = {
 		id = WSC_equipment_effort
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = WSC_reforming_the_army }
-		x = 7
+		x = 1
 		y = 1
-		relative_position_id = army_effort
+		relative_position_id = WSC_reforming_the_army
 		cost = 10
 
 		available_if_capitulated = yes
@@ -426,9 +428,9 @@ focus_tree = {
 		id = WSC_militarism
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = WSC_reforming_the_army }
-		x = -10
-		y = -1
-		relative_position_id = nationalism_focus
+		x = -1
+		y = 1
+		relative_position_id = WSC_reforming_the_army
 		cost = 10
 
 		available_if_capitulated = yes
@@ -918,9 +920,9 @@ focus_tree = {
 		id = WSC_equipment_effort_2
 		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = WSC_equipment_effort }
-		x = 7
-		y = 2
-		relative_position_id = army_effort
+		x = 0
+		y = 1
+		relative_position_id = WSC_equipment_effort
 		cost = 10
 
 		available_if_capitulated = yes
@@ -1416,6 +1418,7 @@ focus = {
 		id = WSC_military_youth
 		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = WSC_the_homefront }
+		available = { not = { has_country_flag = arcand_executed } }
 		x = 14
 		y = 1
 		cost = 10
@@ -1757,7 +1760,7 @@ focus = {
 		id = WSC_submarine_effort
 		icon = GFX_goal_generic_navy_submarine
 		prerequisite = { focus = WSC_The_new_wolfpack }
-		x = 15
+		x = 16
 		y = 2
 		cost = 10
 
@@ -1795,7 +1798,7 @@ focus = {
 		id = WSC_Submarine_effort
 		icon = GFX_goal_generic_construct_naval_dockyard
 		prerequisite = { focus = WSC_submarine_effort }
-		x = 15
+		x = 16
 		y = 3
 		cost = 10
 			
@@ -1810,7 +1813,7 @@ focus = {
 		id = WSC_Cruiser_effort
 		icon = GFX_goal_generic_navy_cruiser
 		prerequisite = { focus = WSC_waves }
-		x = 17
+		x = 18
 		y = 2
 		cost = 10
 
@@ -1848,7 +1851,7 @@ focus = {
 		id = WSC_capital
 		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = WSC_Cruiser_effort }
-		x = 17
+		x = 18
 		y = 3
 		cost = 10
 
@@ -2119,9 +2122,9 @@ focus = {
 		id = WSC_denounce_america
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = WSC_Intervene }
-		x = -1
-		y = 3
-		relative_position_id = paramilitarism
+		x = 4
+		y = 1
+		relative_position_id = WSC_Intervene
 		cost = 10
 
 		available_if_capitulated = yes
@@ -3059,6 +3062,387 @@ focus = {
 			add_research_slot = 1
 		}
 	}	
+	
+	focus = {
+		id = WSC_oppose_arcand
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		#prerequisite = { focus = ITA_industrial_effort_2 }
+		x = 28
+		y = -1
+		#relative_position_id = ITA_industrial_effort_2
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		mutually_exclusive = { focus = WSC_the_canadian_crisis }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			country_event = warstarian.5 
+		}
+	}
+	
+	focus = {
+		id = WSC_origins_of_the_coalition
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_oppose_arcand}
+		x = 0
+		y = 1
+		relative_position_id = WSC_oppose_arcand
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = WSC_american_crisis
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_oppose_arcand}
+		x = -2
+		y = 1
+		relative_position_id = WSC_oppose_arcand
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = WSC_warstarian_legacy_2
+				remove_idea = WSC_warstarian_legacy
+				#
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_renegotiate_platform
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_american_crisis}
+		x = 0
+		y = 1
+		relative_position_id = WSC_american_crisis
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = { focus = WSC_two_pronged_attack }
+
+		completion_reward = {
+			#add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = WSC_the_unholy_option
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_renegotiate_platform}
+		x = 0
+		y = 1
+		relative_position_id = WSC_renegotiate_platform
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = WSC_two_pronged_attack
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_american_crisis}
+		available = { 
+			num_divisions > 3
+			has_army_manpower = {
+				size > 30000
+			}
+		}
+		x = -2
+		y = 1
+		relative_position_id = WSC_american_crisis
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		mutually_exclusive = { focus = WSC_renegotiate_platform }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			country_event = { id = warstarian.2 }
+			custom_effect_tooltip = two_pronged_attack_if_tooltip
+			effect_tooltip = {
+				declare_war_on = {
+					target = CAN
+					type = annex_everything
+				}
+				transfer_state = 466
+				transfer_state = 468
+			}
+			custom_effect_tooltip = chance_for_revolution_in_the_east
+			effect_tooltip = {
+				transfer_state = 471
+				transfer_state = 473
+				transfer_state = 740
+				transfer_state = 739
+				transfer_state = 472
+				transfer_state = 683
+				transfer_state = 470
+				transfer_state = 469
+				transfer_state = 467
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_a_dream_of_unity
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_two_pronged_attack}
+		x = 0
+		y = 1
+		relative_position_id = WSC_two_pronged_attack
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			USA = { country_event = { id = warstarian.3 } }
+		}
+	}
+	
+	focus = {
+		id = WSC_the_anchorage_summit
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_a_dream_of_unity }
+		x = 0
+		y = 1
+		relative_position_id = WSC_a_dream_of_unity
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+
+		}
+	}
+	
+	focus = {
+		id = WSC_dem_central_america
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_the_anchorage_summit }
+		x = 0
+		y = 1
+		relative_position_id = WSC_the_anchorage_summit
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_bastion_of_democracy
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_dem_central_america }
+		x = 0
+		y = 1
+		relative_position_id = WSC_dem_central_america
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_the_newfoundland_situation
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_dem_central_america }
+		x = 2
+		y = 1
+		relative_position_id = WSC_dem_central_america
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_guarantee_the_caribbean
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_dem_central_america }
+		x = -2
+		y = 1
+		relative_position_id = WSC_dem_central_america
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_the_world_stage
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_bastion_of_democracy }
+		prerequisite = { focus = WSC_guarantee_the_caribbean }
+		prerequisite = { focus = WSC_the_newfoundland_situation }
+		x = 0
+		y = 1
+		relative_position_id = WSC_bastion_of_democracy
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_the_eastern_problem
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_the_world_stage }
+		x = 0
+		y = 1
+		relative_position_id = WSC_the_world_stage
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_intervention_in_japan
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_the_eastern_problem }
+		x = -1
+		y = 1
+		relative_position_id = WSC_the_eastern_problem
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_tame_the_red_bear
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_the_eastern_problem }
+		x = 1
+		y = 1
+		relative_position_id = WSC_the_eastern_problem
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_second_anchorage_summit
+		icon = GFX_goal_generic_dangerous_deal
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_intervention_in_japan }
+		x = 0
+		y = 1
+		relative_position_id = WSC_intervention_in_japan
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	
 
 
 	

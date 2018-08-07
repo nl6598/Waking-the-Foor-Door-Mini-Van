@@ -29,3 +29,71 @@ country_event = {
 		news_event = news_event.420
 	}
 }
+
+country_event = {
+	id = warstarian.2
+	title = warstarian.2.t
+	desc = warstarian.2.d
+	picture = GFX_report_event_adrian_wins
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = WSC
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = warstarian.2.a
+		transfer_state = 466
+		transfer_state = 468
+		declare_war_on = {
+			target = CAN
+			type = annex_everything
+		}
+		hidden_effect = {
+			news_event = news_event.424
+			country_event =  warstarian.4
+		}
+	}
+}
+
+country_event = {
+	id = warstarian.4
+	title = warstarian.4.t
+	desc = warstarian.4.d
+	picture = GFX_report_event_adrian_wins
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = WSC
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = warstarian.4.a
+		transfer_state = 471
+		transfer_state = 473
+		transfer_state = 740
+		transfer_state = 739
+		transfer_state = 472
+		transfer_state = 683
+		transfer_state = 470
+		transfer_state = 469
+		transfer_state = 467
+		hidden_effect = {
+			news_event = news_event.425
+		}
+	}
+}
