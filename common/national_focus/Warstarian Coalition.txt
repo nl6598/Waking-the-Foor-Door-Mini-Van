@@ -3106,6 +3106,274 @@ focus = {
 	}
 	
 	focus = {
+		id = WSC_anchorage_liberators
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_origins_of_the_coalition }
+		x = 0
+		y = 1
+		relative_position_id = WSC_origins_of_the_coalition
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_new_citizenship_policy
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_origins_of_the_coalition }
+		x = 2
+		y = 1
+		relative_position_id = WSC_origins_of_the_coalition
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_open_up_steel_mills
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_new_citizenship_policy }
+		x = 0
+		y = 1
+		relative_position_id = WSC_new_citizenship_policy
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_a_new_frontier
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_open_up_steel_mills }
+		x = 0
+		y = 1
+		relative_position_id = WSC_open_up_steel_mills
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_defense_plan_a
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_anchorage_liberators }
+		x = 0
+		y = 1
+		relative_position_id = WSC_anchorage_liberators
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_professional_military_boot_camps
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_defense_plan_a }
+		x = 0
+		y = 1
+		relative_position_id = WSC_defense_plan_a
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_prepare_for_the_worst
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_professional_military_boot_camps }
+		x = 0
+		y = 1
+		relative_position_id = WSC_professional_military_boot_camps
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_the_nighthawks
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_prepare_for_the_worst }
+		x = 0
+		y = 1
+		relative_position_id = WSC_prepare_for_the_worst
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_adopt_a_subversive_doctrine
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_the_nighthawks }
+		x = 0
+		y = 1
+		relative_position_id = WSC_the_nighthawks
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = { 
+				WSC_subversive_doctrine
+				#Makes foreign activities harder to do, +1 encryption, and +1 decryption
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_partisan_tactics
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_prepare_for_the_worst }
+		x = 2
+		y = 1
+		relative_position_id = WSC_prepare_for_the_worst
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_guerilla_warfare
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_partisan_tactics }
+		x = 0
+		y = 1
+		relative_position_id = WSC_partisan_tactics
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = WSC_the_greater_trek
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_adopt_a_subversive_doctrine }
+		prerequisite = { focus = WSC_guerilla_warfare }
+		x = 1
+		y = 1
+		relative_position_id = WSC_adopt_a_subversive_doctrine 
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = WSC_the_greater_trek
+				remove_idea = WSC_the_great_trek
+				#Greater Trek will be war support and training time
+			}
+		}
+	}
+	
+	focus = {
+		id = WSC_the_nighthawks
+		icon = GFX_goal_unknown
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_prepare_for_the_worst }
+		x = 0
+		y = 1
+		relative_position_id = WSC_prepare_for_the_worst
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
 		id = WSC_american_crisis
 		icon = GFX_goal_generic_dangerous_deal
 		#text = extra_tech_slot
@@ -3217,7 +3485,6 @@ focus = {
 				transfer_state = 469
 				transfer_state = 467
 			}
-			remove_ideas = WSC_the_great_trek
 		}
 	}
 	
@@ -3238,6 +3505,27 @@ focus = {
 
 		completion_reward = {
 			USA = { country_event = { id = warstarian.3 } }
+		}
+	}
+	
+	focus = {
+		id = WSC_support_america_first
+		icon = GFX_goal_generic_national_unity
+		#text = extra_tech_slot
+		prerequisite = { focus = WSC_a_dream_of_unity}
+		available = { date > 1940.01.01 }
+		x = 2
+		y = 1
+		relative_position_id = WSC_a_dream_of_unity
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
 		}
 	}
 	

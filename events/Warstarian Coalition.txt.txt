@@ -97,3 +97,76 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = warstarian.5
+	title = warstarian.5.t
+	desc = warstarian.5.d
+	picture = GFX_report_event_adrian_wins
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		tag = WSC
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = warstarian.5.a
+		kill_country_leader = yes
+		set_country_flag = arcand_executed
+		set_politics = {
+			parties = {
+				democratic = { 
+					popularity = 75
+				}
+
+				fascism = {
+					popularity = 0
+				}
+			
+				communism = {
+					popularity = 25
+				}
+			
+				neutrality = { 
+					popularity = 0
+				}
+			}
+			ruling_party = democratic
+		}
+		add_political_power = 150
+		custom_effect_tooltip = WSC_an_end_to_fascism
+	}
+	
+	option = {
+		name = warstarian.5.b
+		set_politics = {
+			parties = {
+				democratic = { 
+					popularity = 50
+				}
+
+				fascism = {
+					popularity = 15
+				}
+			
+				communism = {
+					popularity = 25
+				}
+			
+				neutrality = { 
+					popularity = 10
+				}
+			}
+			ruling_party = democratic
+		}
+		add_political_power = -150
+	}
+	custom_effect_tooltip = WSC_an_honorable_decision
+}

@@ -3116,4 +3116,11 @@
  news.423.b:0 "The position of Drum Major is mine!"
  
  warstarian.2.t:0 "Two Pronged Attack"
-
+ 
+ warstarian.5.t:0 "The Trial of Arcand"
+ warstarian.5.d:0 "Adrian Arcand, the man who forced the Warstarian Coalition and Alaska under his thumb, has finally been caught by the Underground Democratic Movement. It is up to you to decide the fate of this man."
+ warstarian.5.a:0 "Execute him."
+ warstarian.5.b:0 "Such grand opportunity has wandered into our grasp, let us not kill him, since after all he didn't kill us."
+ 
+ WSC_an_end_to_fascism:0 "§RArcand will be killed§!"
+ WSC_an_honorable_decision:0 "§GArcand will be allowed to live, and the Democratic Regime will come to power. Arcand will also be available for service in the government despite this shakeup.§!"
